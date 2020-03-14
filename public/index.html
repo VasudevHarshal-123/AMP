@@ -17,22 +17,37 @@
     <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
     <script async custom-element = "amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
 
     
     
   </head>
   <body>
-    <header class="headerbar"><h2>Chico's Cheese Bicycles</h2></header>
+    <header class="headerbar">
+      <button class="hamburger" on="tap:sidebar1.toggle"></button>
+      <h2>Chico's Cheese Bicycles</h2>
+    </header>
     <main>
       <div class="main-content">
+
+      <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
+        <button on="tap:sidebar1.close">x</button>
+        <ul>
+          <li>Nav item 1</li>
+          <li><a href="#idTwo" on="tap:idTwo.scrollTo">Nav item 2</a></li>
+          <li>Nav item 3</li>
+          <li><a href="#idFour" on="tap:idFour.scrollTo">Nav item 4</a></li>
+          <li>Nav item 5</li>
+          <li>Nav item 6</li>
+        </ul>
+      </amp-sidebar>
         <amp-img width="640" layout="responsive" height="480" alt="Welcome" src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fricotta-racer.jpg?1540228217746">
-          fmknvb.afkvnjmb .fkvjnbfd
         </amp-img>
          
         
         <div class="below-hero">
           <!-- <h2 class="main-heading">What we're about</h2> -->
-          <amp-carousel layout="intrinsic" width="1300" height="700" type="slides" autoplay delay="2000">
+          <amp-carousel layout="responsive" width="1300" height="700" type="slides" autoplay delay="5000">
             <amp-img height="309" width="412" src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
             <amp-img height="309" width="412" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
             <amp-img height="309" width="412" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
@@ -68,7 +83,7 @@
           data-share-endpoint="fb-messenger://share"
           data-param-text="Check out this article: TITLE - CANONICAL_URL"
         >
-      </amp-social-share>
+        </amp-social-share>
         </div>
 
         </div>
