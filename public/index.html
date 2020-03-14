@@ -18,35 +18,52 @@
     <script async custom-element = "amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-
-    
-    
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
   </head>
   <body>
     <header class="headerbar">
-      <button class="hamburger" on="tap:sidebar1.toggle"></button>
+      <div class="navbar-trigger" role="button" tabindex="0" on="tap:sidebar1.toggle">
+        <svg width="30" height="30" id="menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"> <path d="M2.133 13.867h59.733c1.178 0 2.133 0.955 2.133 2.133v2.133c0 1.178-0.955 2.133-2.133 2.133h-59.733c-1.178 0-2.133-0.955-2.133-2.133v-2.133c0-1.178 0.955-2.133 2.133-2.133z"></path> <path d="M2.133 28.8h59.733c1.178 0 2.133 0.955 2.133 2.133v2.133c0 1.178-0.955 2.133-2.133 2.133h-59.733c-1.178 0-2.133-0.955-2.133-2.133v-2.133c0-1.178 0.955-2.133 2.133-2.133z"></path> <path d="M2.133 43.733h59.733c1.178 0 2.133 0.955 2.133 2.133v2.133c0 1.178-0.955 2.133-2.133 2.133h-59.733c-1.178 0-2.133-0.955-2.133-2.133v-2.133c0-1.178 0.955-2.133 2.133-2.133z"></path>
+        </svg>
+      </div>
+      
       <h2>Chico's Cheese Bicycles</h2>
     </header>
     <main>
       <div class="main-content">
-
-      <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
-        <button on="tap:sidebar1.close">x</button>
-        <ul>
-          <li>Nav item 1</li>
-          <li><a href="#idTwo" on="tap:idTwo.scrollTo">Nav item 2</a></li>
-          <li>Nav item 3</li>
-          <li><a href="#idFour" on="tap:idFour.scrollTo">Nav item 4</a></li>
-          <li>Nav item 5</li>
-          <li>Nav item 6</li>
-        </ul>
-      </amp-sidebar>
+      <div>
+          
+      <amp-sidebar class="sidebar" id="sidebar1" layout="nodisplay" side="left">
+        <div class="navbar-trigger" role="button" tabindex="0"  on="tap:sidebar1.close">
+            X
+        </div>
+        <nav>
+          <ul class="label">  
+            <li class="nav-item"><a href="#" on="tap:idTwo.scrollTo">Our Story</a></li>
+            <li class="nav-item"> 
+                <amp-accordion class="dropdown" layout="container">
+                  <section>
+                   <header>Our Bikes</header>
+                   <ul class="dropdown-items">
+                   <li class="dropdown-item"><a href="#">Ricotta racer</a></li>
+                   <li class="dropdown-item">Cheddar Chaser</li>
+                   <li class="dropdown-item">PErmecan Pacer</li>
+                   </ul>
+                  </section>
+                </amp-accordion> </li>
+            <li class="nav-item"><a href="#" on="tap:idTwo.scrollTo">Latest model</a></li>
+            <li class="nav-item"><a href="#" on="tap:idFour.scrollTo">Contact</a></li>
+            </ul>
+        </nav>
+        
+      </amp-sidebar>  
+      </div>  
         <amp-img width="640" layout="responsive" height="480" alt="Welcome" src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fricotta-racer.jpg?1540228217746">
         </amp-img>
          
         
         <div class="below-hero">
-          <!-- <h2 class="main-heading">What we're about</h2> -->
           <amp-carousel layout="responsive" width="1300" height="700" type="slides" autoplay delay="5000">
             <amp-img height="309" width="412" src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
             <amp-img height="309" width="412" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
@@ -85,7 +102,18 @@
         >
         </amp-social-share>
         </div>
-
+        <div>
+          <form action="/submit-form" target="_top">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value="John"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="Doe"><br><br>
+            <input type="submit" value="Submit">
+          </form> 
+          </div>
+        </form>
+      
+        </div>
         </div>
       </div>
     </main>

@@ -16,7 +16,10 @@ app.use((req, res, next) => {
 
 // This serves static files from the specified directory
 app.use(express.static(__dirname + '/public'));
-
+app.get('/submit-form',(req,res)=>{
+  res.send("Form Submitted");
+  res.end();
+})
 app.get('/products/filter', (req, res) => {
   const filterType = req.query.category || 'all';
   const sortValue = req.query.sort || 'price-desc';
