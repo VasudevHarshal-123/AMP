@@ -21,6 +21,9 @@
     <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script>
+    <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
   </head>
   <body>
     <header class="headerbar">
@@ -60,24 +63,27 @@
         
       </amp-sidebar>  
       </div>  
-        <amp-img width="640" layout="responsive" height="480" alt="Welcome" src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fricotta-racer.jpg?1540228217746">
+      <amp-image-lightbox id="cycle" layout="nodisplay"></amp-image-lightbox>
+        <amp-img on="tap:cycle"  role="button" tabindex="0" width="640" layout="responsive" height="480" alt="Welcome" src="https://cdn.glitch.com/d7f46a57-0ca4-4cca-ab0f-69068dec6631%2Fricotta-racer.jpg?1540228217746">
         </amp-img>
          
         
         <div class="below-hero">
-          <amp-carousel id="carousel" layout="responsive" width="1300" height="700" type="slides" autoplay delay="5000">
+          <amp-carousel id="carousel" layout="responsive" width="1300" height="700" type="slides" autoplay delay="5000" lightbox> 
             <amp-img tabindex="0" height="309" width="412" src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
             <amp-img tabindex="1" height="309" width="412" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
             <amp-img tabindex="2" height="309" width="412" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
             <amp-img tabindex="3" height="309" width="412" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
           </amp-carousel>
 
-          <amp-carousel class="thumbnail-carousel" layout="fixed-height" height="78" type="carousel">
-            <amp-img role="button" tabindex="0" on="tap:carousel.goToSlide(index=0)" height="72" width="96" src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
-            <amp-img role="button" tabindex="1" on="tap:carousel.goToSlide(index=1)" height="72" width="96" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
-            <amp-img role="button" tabindex="2" on="tap:carousel.goToSlide(index=2)" height="72" width="96" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
-            <amp-img role="button" tabindex="3" on="tap:carousel.goToSlide(index=3)" height="72" width="96" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
+          <amp-selector layout="container" id="ampSelector" name="single-image-select">
+          <amp-carousel id="thumbnail" class="thumbnail-carousel" layout="fixed-height" height="78" type="carousel">
+              <amp-img role="button" tabindex="0" on="tap:carousel.goToSlide(index=0)" height="72" width="96" src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
+              <amp-img role="button" tabindex="1" on="tap:carousel.goToSlide(index=1)" height="72" width="96" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
+              <amp-img role="button" tabindex="2" on="tap:carousel.goToSlide(index=2)" height="72" width="96" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
+              <amp-img role="button" tabindex="3" on="tap:carousel.goToSlide(index=3)" height="72" width="96" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
           </amp-carousel>
+        </amp-selector>
           <p class="main-text">
             We sell the only ten-speed bicycles in the world made entirely of
             cheese. They get you where you need to go, and you never arrive
