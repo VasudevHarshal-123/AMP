@@ -20,6 +20,7 @@
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
     <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
   </head>
   <body>
     <header class="headerbar">
@@ -64,11 +65,18 @@
          
         
         <div class="below-hero">
-          <amp-carousel layout="responsive" width="1300" height="700" type="slides" autoplay delay="5000">
-            <amp-img height="309" width="412" src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
-            <amp-img height="309" width="412" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
-            <amp-img height="309" width="412" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
-            <amp-img height="309" width="412" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
+          <amp-carousel id="carousel" layout="responsive" width="1300" height="700" type="slides" autoplay delay="5000">
+            <amp-img tabindex="0" height="309" width="412" src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
+            <amp-img tabindex="1" height="309" width="412" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
+            <amp-img tabindex="2" height="309" width="412" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
+            <amp-img tabindex="3" height="309" width="412" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
+          </amp-carousel>
+
+          <amp-carousel class="thumbnail-carousel" layout="fixed-height" height="78" type="carousel">
+            <amp-img role="button" tabindex="0" on="tap:carousel.goToSlide(index=0)" height="72" width="96" src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
+            <amp-img role="button" tabindex="1" on="tap:carousel.goToSlide(index=1)" height="72" width="96" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
+            <amp-img role="button" tabindex="2" on="tap:carousel.goToSlide(index=2)" height="72" width="96" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
+            <amp-img role="button" tabindex="3" on="tap:carousel.goToSlide(index=3)" height="72" width="96" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></amp-img>
           </amp-carousel>
           <p class="main-text">
             We sell the only ten-speed bicycles in the world made entirely of
@@ -86,6 +94,38 @@
             </div>
           </amp-youtube>
         </div>
+<!-- AMP form -->
+  <form method="post"
+    action-xhr="#"    target="_top">
+    <fieldset>
+      <label>
+        <span>Name:</span>
+        <input placeholder="amp form" type="text"
+          name="name"
+          required>
+      </label>
+      <br>
+      <label>
+        <span>Email:</span>
+        <input type="email"
+          name="email"
+          required>
+      </label>
+      <br>
+      <input type="submit"
+        value="Subscribe">
+    </fieldset>
+    <div submit-success>
+      <template type="amp-mustache">
+        Subscription successful!
+      </template>
+    </div>
+    <div submit-error>
+      <template type="amp-mustache">
+        Subscription failed!
+      </template>
+    </div>
+  </form>
 
         <div class="social-share-wrapper">
           <amp-social-share
@@ -105,9 +145,9 @@
         <div>
           <form action="/submit-form" target="_top">
             <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" value="John"><br>
+            <input type="text" id="fname" name="fname" placeholder="HTML form"><br>
             <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname" value="Doe"><br><br>
+            <input type="text" id="lname" name="lname" value="Doh"><br><br>
             <input type="submit" value="Submit">
           </form> 
           </div>
