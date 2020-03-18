@@ -728,6 +728,7 @@
           </amp-state>
         <div class="timer"> 
           <p id="para" [text]="timer.secs"  >0</p>
+          <a href="https://www.google.com/">google</a>
         </div>
         </amp-script>
 
@@ -738,10 +739,8 @@
 
           var interval = window.setInterval(callBack,1000,height);        
           function callBack(height){
-            console.log("GIU")
             let bounding = p.getBoundingClientRectAsync();
-            bounding.then(data=>{
-              console.log(data)  
+            bounding.then(data=>{ 
                 if(data.top>0 && data.bottom<height){
                   AMP.setState({timer:{secs:d}})
                   d++;
@@ -778,22 +777,24 @@
       </amp-script>
          -->
         
-<!--        
+       <!-- https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/configure-analytics/analytics_basics/?format=websites 
+        REMOVE "," after , commit and send pull request
+      -->
       <amp-analytics>
         <script type="application/json">
           {
             "requests": {
-              "pageview": "https://localhopst:8080/amp-test"
+              "pageview": "https://814d362c.ngrok.io/amp-test?RANDOM"
             },
             "triggers": {
               "trackPageview": {
-                "on": "visible",
+                "on": "hidden",
                 "request": "pageview"
               }
-            }
+            }      
           }
         </script>
-      </amp-analytics>    -->
+      </amp-analytics>   
       
     </div>
       </div>
