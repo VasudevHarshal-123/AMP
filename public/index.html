@@ -736,7 +736,8 @@
           var height = window.innerHeight;  
           let p = document.querySelector("#para");
           var d = 1;
-
+          var screenWidth = window.innerWidth;
+          console.log("screenW",screenWidth);
           var interval = window.setInterval(callBack,1000,height);        
           function callBack(height){
             let bounding = p.getBoundingClientRectAsync();
@@ -784,7 +785,7 @@
         <script type="application/json">
           {
             "requests": {
-              "pageview": "https://814d362c.ngrok.io/amp-test?RANDOM"
+              "pageview": "https://39c41f05.ngrok.io/amp-test?RANDOM"
             },
             "triggers": {
               "trackPageview": {
