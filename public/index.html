@@ -732,12 +732,33 @@
         </div>
         </amp-script>
 
+        <amp-script data-ampdevmode="" width="200" height="200" script="myScript">
+          <amp-state id="timer">
+          <script type="application/json">
+            {
+              "secs":0
+            }
+          </script>
+        </amp-state>
+      <div class="timer"> 
+        <p id="para" [text]="timer.secs"  >0</p>
+        <a href="https://www.google.com/">google</a>
+      </div>
+      </amp-script>
+
         <script id="myScript" type="text/plain" target="amp-script" >
           var height = window.innerHeight;  
+          var screenWidth = window.innerWidth;
+          var useragent = navigator.userAgent;
+          const timeUserEntered = Date.now();
+          const pageload= window.innerHeight;
+
+
+          console.log("screenW",pageload);
+          
           let p = document.querySelector("#para");
           var d = 1;
-          var screenWidth = window.innerWidth;
-          console.log("screenW",screenWidth);
+          
           var interval = window.setInterval(callBack,1000,height);        
           function callBack(height){
             let bounding = p.getBoundingClientRectAsync();
@@ -781,11 +802,11 @@
        <!-- https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/configure-analytics/analytics_basics/?format=websites 
         REMOVE "," after , commit and send pull request
       -->
-      <amp-analytics>
+      <!-- <amp-analytics>
         <script type="application/json">
           {
             "requests": {
-              "pageview": "https://39c41f05.ngrok.io/amp-test?RANDOM"
+              "pageview": "https://29cefe31.ngrok.io/amp-test?RANDOM"
             },
             "triggers": {
               "trackPageview": {
@@ -795,7 +816,7 @@
             }      
           }
         </script>
-      </amp-analytics>   
+      </amp-analytics>    -->
       
     </div>
       </div>
