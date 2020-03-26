@@ -8,15 +8,6 @@
     content="sha384-hQHZNNdtZa6FT3QxbE5NA-UuenV7-BcorVoAR2Qj708odpD9dOJnQ1SPBtRSOQk-"
   />
 
-
-
-
-
-
-
-
-
-
     <title>Chico's Cheese Bicycles</title>
     <link rel="canonical" href="$SOME_URL">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -751,10 +742,6 @@
           var screenWidth = window.innerWidth;
           var useragent = navigator.userAgent;
           const timeUserEntered = Date.now();
-          const pageload= window.innerHeight;
-
-
-          console.log("screenW",pageload);
           
           let p = document.querySelector("#para");
           var d = 1;
@@ -802,21 +789,29 @@
        <!-- https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/configure-analytics/analytics_basics/?format=websites 
         REMOVE "," after , commit and send pull request
       -->
-      <!-- <amp-analytics>
+      <amp-analytics>
         <script type="application/json">
           {
             "requests": {
-              "pageview": "https://29cefe31.ngrok.io/amp-test?RANDOM"
+              "pageview": "https://cf7cdbee.ngrok.io/amp-test",
+            },
+            "vars": {
+              "account": "ABC123",
+              "title": "Homepage"
             },
             "triggers": {
-              "trackPageview": {
-                "on": "hidden",
-                "request": "pageview"
-              }
-            }      
+              "some-event": {
+                "on": "visible",
+                "request": "pageview",
+                "vars": {
+                  "title": "My homepage",
+                  "clientId": "my user"
+                }
+            }
           }
+        }
         </script>
-      </amp-analytics>    -->
+      </amp-analytics>   
       
     </div>
       </div>
