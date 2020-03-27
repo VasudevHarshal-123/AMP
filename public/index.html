@@ -732,7 +732,7 @@
           </script>
         </amp-state>
       <div class="timer"> 
-        <p id="para" [text]="timer.secs"  >0</p>
+        <p id="para" [text]="sth.message"  >0</p>
         <a href="https://www.google.com/">google</a>
       </div>
       </amp-script>
@@ -791,25 +791,20 @@
       -->
       <amp-analytics>
         <script type="application/json">
-          {
-            "requests": {
-              "pageview": "https://cf7cdbee.ngrok.io/amp-test",
-            },
-            "vars": {
-              "account": "ABC123",
-              "title": "Homepage"
-            },
-            "triggers": {
-              "some-event": {
-                "on": "visible",
-                "request": "pageview",
-                "vars": {
-                  "title": "My homepage",
-                  "clientId": "my user"
+              {
+                "requests": {
+                  "pageview": "https://cbc2bf7b.ngrok.io/amp-test?[a]=${sth.message}"
+                },
+                "vars":{
+                  "pageScroll":"${scrollTop}"
+                },
+                "triggers": {
+                  "trackPageview": {
+                    "on": "hidden",
+                    "request": "pageview"
+                  }
                 }
-            }
-          }
-        }
+              }
         </script>
       </amp-analytics>   
       
